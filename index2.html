@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+    }
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
+    }
+</style>
+
+<body>
+    <div id="search-filter">
+        <h2>Search & Filter</h2>
+        <input type="text" id="search" placeholder="Enter assignee,title or ID">
+        <select id="status">
+            <option value="">Select Status</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Todo">Todo</option>
+            <option value="Completed">Completed</option>
+        </select>
+        <select id="priority">
+            <option value="">Select Priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <button type="button" id="searchBtn">Search</button>
+
+    </div>
+    <br>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Assignee</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Tags</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="taskTable">
+        </tbody>
+
+    </table>
+
+    <script>
+        const tasks = [
+            {
+                id: 101,
+                title: "Create Login Page",
+                assignee: "Rahul",
+                status: "In Progress",
+                priority: "High",
+                tags: ["Frontend", "React"]
+            },
+            {
+                id: 102,
+                title: "Create Payment API",
+                assignee: "Aman",
+                status: "Todo",
+                priority: "Medium",
+                tags: ["Backend", "API"]
+            },
+            {
+                id: 103,
+                title: "Fix Dashboard Bug",
+                assignee: "Priya",
+                status: "Completed",
+                priority: "Low",
+                tags: ["Bug", "Frontend"]
+            }
+        ];
+
+        const searchInput = document.getElementById("search");
+        const searchBtn = document.getElementById("searchBtn");
+
+        searchBtn.addEventListener("click", function () {
+            const searchValue = searchInput.value;
+        });
+    </script>
+</body>
+
+</html>

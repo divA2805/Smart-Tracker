@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Work Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Smart Work Tracker</h1>
+    </div>
+    <h2>Dashboard</h2>
+    <div class="dashboard">
+        <div class="card">
+            <h3>Total Tasks</h3>
+            <p id="totalTasks">0</p>
+        </div>
+        <div class="card">
+            <h3>Todo</h3>
+            <p id="todoTasks">0</p>
+        </div>
+        <div class="card">
+            <h3>In Progress</h3>
+            <p id="progressTasks">0</p>
+        </div>
+        <div class="card">
+            <h3>Completed</h3>
+            <p id="completedTasks">0</p>
+        </div>
+    </div>
+
+    <div class="task-header">
+        <button id="taskFormBtn">Task Form</button>
+    </div>
+    <div id="taskFormContainer" class="form-container">
+        <h3>Add Task</h3>
+        <form id="taskForm">
+
+            <input type="number" id="taskId" placeholder="Task ID" required>
+
+            <input type="text" id="title" placeholder="Title" required>
+
+            <input type="text" id="assignee" placeholder="Assignee" required>
+
+            <select id="status" required>
+                <option value="">Select Status</option>
+                <option value="Todo">Todo</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+
+            <select id="priority" required>
+                <option value="">Select Priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <input type="text" id="tags" placeholder="Tags: React, Frontend" required>
+            <button type="submit">Add Task</button>
+            <button type="reset" id="resetBtn">Reset</button>
+
+        </form>
+
+    </div>
+
+    
+    <div id="search-filter">
+        <h2>Search & Filter</h2>
+        <input type="text" id="search" placeholder="Enter assignee,title or ID"> 
+        <select id="status">
+            <option value="">Select Status</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Todo">Todo</option>
+            <option value="Completed">Completed</option>
+        </select>
+        <select id="priority">
+            <option value="">Select Priority</option>
+            <option value="Low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <button value="submit">Search</button>
+    </div>
+
+    <h2>Task List</h2>
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Assignee</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Tags</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="taskTable">
+
+        </tbody>
+
+    </table>
+    <script src="sscript.js"></script>
+</body>
+
+</html>
