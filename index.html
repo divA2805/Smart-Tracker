@@ -9,9 +9,9 @@
 
 <body>
     <div class="header">
-        <h1>Smart Work Tracker</h1>
+        <h2>Smart Work Tracker</h2>
     </div>
-    <h2>Dashboard</h2>
+    <h3>Dashboard</h3>
     <div class="dashboard">
         <div class="card">
             <h3>Total Tasks</h3>
@@ -35,7 +35,7 @@
         <button id="taskFormBtn">Task Form</button>
     </div>
     <div id="taskFormContainer" class="form-container">
-        <h3>Add Task</h3>
+        <h3 id="formHeading">Add Task</h3>
         <form id="taskForm">
 
             <input type="number" id="taskId" placeholder="Task ID" required>
@@ -65,9 +65,11 @@
         </form>
 
     </div>
+
+    <div id="search-card">
     <div>
-            <h2>Search & Filter</h2>
-        </div>
+        <h2>Search & Filter</h2>
+    </div>
     <search>
         <div id="search-filter">
             <input type="text" id="search" placeholder="Enter Assignee or Title">
@@ -86,9 +88,14 @@
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
             </select>
+            <select id="tagFilter">
+                <!-- <option value="">Select Tag</option> -->
+            </select>
             <button id="filterbtn" type="button">Apply Filter</button>
+            <button id="resetFilterBtn" type="button">Reset</button>
         </div>
     </search>
+    </div>
 
     <h2>Task List</h2>
     <table>
