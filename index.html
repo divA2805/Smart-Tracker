@@ -65,25 +65,30 @@
         </form>
 
     </div>
-
-    
-    <div id="search-filter">
-        <h2>Search & Filter</h2>
-        <input type="text" id="search" placeholder="Enter assignee,title or ID"> 
-        <select id="status">
-            <option value="">Select Status</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Todo">Todo</option>
-            <option value="Completed">Completed</option>
-        </select>
-        <select id="priority">
-            <option value="">Select Priority</option>
-            <option value="Low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="High">High</option>
-        </select>
-        <button value="submit">Search</button>
-    </div>
+    <div>
+            <h2>Search & Filter</h2>
+        </div>
+    <search>
+        <div id="search-filter">
+            <input type="text" id="search" placeholder="Enter Assignee or Title">
+            <button id="srcbtn" type="button">Search</button>
+        </div>
+        <div>
+            <select id="statusFilter">
+                <option value="">Select Status</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Todo">Todo</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <select id="priorityFilter">
+                <option value="">Select Priority</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <button id="filterbtn" type="button">Apply Filter</button>
+        </div>
+    </search>
 
     <h2>Task List</h2>
     <table>
