@@ -1,4 +1,4 @@
-const tasks = [
+const tasks = JSON.parse(localStorage.getItem("tasks")) || [
     {
         id: 101,
         title: "Create Login Page",
@@ -43,6 +43,11 @@ const submitBtn = taskForm.querySelector("button[type='submit']");
 const formHeading = document.getElementById("formHeading");
 const resetFilterBtn = document.getElementById("resetFilterBtn");
 let editId = null;
+
+const saveTasks = () => {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+};
+
 const tagSet = new Set();
 updateTagSet();
 updateTagDropdown();
@@ -155,7 +160,9 @@ taskForm.addEventListener("submit", function (event) {
             tagSet.add(tag);
         }
     });
+    
     updateTagDropdown();
+    saveTasks();
     displayTasks();
     updateDashboard();
     taskForm.reset();
@@ -247,7 +254,7 @@ resetFilterBtn.addEventListener("click", function () {
     statusFilter.value = "";
     priorityFilter.value = "";
     tagFilter.value = "";
-
+    
     displayTasks();
 });
 
@@ -259,6 +266,14 @@ function deleteTask(id) {
         return;
     }
     tasks.splice(index, 1);
+
+     // Rebuild tag Set (DEENDS, after deleteing the required row, you 
+     // want that tag to be deleetd from dropdown or not)
+    tagSet.clear();
+    updateTagSet();
+    updateTagDropdown();
+
+    saveTasks();
     displayTasks();
     updateDashboard();
 }
@@ -298,7 +313,6 @@ function updateTagDropdown() {
         tagFilter.appendChild(option);
     });
 }
-
 displayTasks();
 updateDashboard();
 
