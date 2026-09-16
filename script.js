@@ -56,7 +56,7 @@ function displayTasks() {
 
     taskTable.innerHTML = "";
 
-    tasks.map((task) => {
+    tasks.forEach((task) => {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${task.id}</td>
@@ -178,7 +178,7 @@ srcbtn.addEventListener("click", function () {
     }
     const result = tasks.filter((x) => {
         //if (x.id===Number(key)||x.assignee.toLowerCase()===key||x.title.toLowerCase()===key)
-        return (x.assignee.toLowerCase() === key || x.title.toLowerCase() === key);
+        return (x.assignee.toLowerCase().includes(key)|| x.title.toLowerCase().includes(key));
     });
     if (result.length === 0) {
         alert("Value is not present");
