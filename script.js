@@ -42,6 +42,7 @@ const filterbtn = document.getElementById("filterbtn");
 const submitBtn = taskForm.querySelector("button[type='submit']");
 const formHeading = document.getElementById("formHeading");
 const resetFilterBtn = document.getElementById("resetFilterBtn");
+const addBtn = document.getElementById("addTaskBtn");
 let editId = null;
 
 const saveTasks = () => {
@@ -113,8 +114,12 @@ taskFormBtn.addEventListener("click", function () {
 
 
 
-taskForm.addEventListener("submit", function (event) {
+addBtn.addEventListener("click", function (event) {
     event.preventDefault();
+        if (!taskForm.checkValidity()) {
+        taskForm.reportValidity();
+        return;
+    }
     const id = Number(document.getElementById("taskId").value);
     const title = document.getElementById("title").value;
     const assignee = document.getElementById("assignee").value;
